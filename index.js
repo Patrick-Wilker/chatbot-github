@@ -16,11 +16,12 @@ app.get("/api", async(req, res) => {
 
     let response = await axios.get('https://api.github.com/orgs/takenet/repos')
 
-    let repos = []
+    let repos = {"status": "ok", "results": []}
 
     for(let i in response.data){
         if(response.data[i].language === 'C#'){
-            repos.push(response.data[i])
+            repos.results.push({"Title": response.data[i].name, "Text": response.data[i].description, "Uri": response.data[i].owner.avatar_url})
+
         }
     }
 
