@@ -38,7 +38,8 @@ app.get("/api", async(req, res) => {
                             type: "image/jpeg",
                             uri: response.data[i].owner.avatar_url  
                         }
-                    }
+                    },
+                    options: []
                 }
             )
 
